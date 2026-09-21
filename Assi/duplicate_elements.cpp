@@ -2,24 +2,18 @@
 using namespace std;
 
 int main() {
-    int arr[7] = {1,1,4,2,4,5,2};
+    int n = 6;
+    int arr[n] = {1, 2, 2, 3, 2, 1};
 
-    for (int i = 0; i < 7; i++) {
-        for (int j = i + 1; j < 7; j++) {
-            if (arr[i] == arr[j]) {
-          
-                for (int k=j;k<7-1;k++) {
-                    arr[k] = arr[k + 1];
-                }
-                7-1;   
-                j--;   
-            }
+    int seen[100] = {0};
+    int size = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (seen[arr[i]] == 0) {
+            seen[arr[i]] = 1;
+            arr[size] = arr[i];
+            size++;
         }
-    }
-
-    cout << "Array after removing duplicates:\n";
-    for (int i = 0; i < 7; i++) {
-        cout << arr[i] << " ";
     }
 
     return 0;
